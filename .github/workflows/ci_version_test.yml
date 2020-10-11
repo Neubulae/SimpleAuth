@@ -40,7 +40,7 @@ jobs:
           name: UNZIP_ME_${{ env.BUILDNAME }}
           path: build/libs/${{ env.BUILDNAME }}.jar
       - name: Create a Release
-        if: ${{ env.SHOULD_RELEASE }}
+        if: ${{ env.SHOULD_PUBLISH }}
         uses: actions/create-release@v1.1.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -52,7 +52,7 @@ jobs:
           # Text describing the contents of the tag.
           body: This release was created automatically.
       - name: Upload a Release Asset
-        if: ${{ env.SHOULD_RELEASE }}
+        if: ${{ env.SHOULD_PUBLISH }}
         uses: actions/upload-release-asset@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
