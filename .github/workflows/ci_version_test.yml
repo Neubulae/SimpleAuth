@@ -41,6 +41,7 @@ jobs:
           path: build/libs/${{ env.BUILDNAME }}.jar
       - name: Create a Release
         if: ${{ env.SHOULD_PUBLISH }}
+        id: create_release
         uses: actions/create-release@v1.1.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
