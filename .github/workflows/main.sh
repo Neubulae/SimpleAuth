@@ -14,10 +14,10 @@ echo "Build is going to be renamed: $buildName.jar"
 mv "$projectId-$version-$mcVersion.jar" "$buildName.jar"
 
 # Setting the buildname for GH actions
-echo "::set-env name=BUILDNAME::$buildName"
-echo "::set-env name=PROJECT_ID::$projectId"
-echo "::set-env name=VERSION::$version"
-echo "::set-env name=MC_VERSION::$mcVersion"
+echo "BUILDNAME=$buildName" >> $GITHUB_ENV
+echo "PROJECT_ID=$projectId" >> $GITHUB_ENV
+echo "VERSION=$version" >> $GITHUB_ENV
+echo "MC_VERSION=$mcVersion" >> $GITHUB_ENV
 
 
 # Checks if build is stable (I always bump version when I release stable, uploadable version)
